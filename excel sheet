@@ -1,0 +1,10 @@
+class Solution:
+    def titleToNumber(self, columnTitle: str) -> int:
+        number = 0
+        for i in range(len(columnTitle)):
+            letter=columnTitle[i]
+            corresponding_letter_value=ord(letter) - ord('A') + 1
+            number += (corresponding_letter_value *pow(26,len(columnTitle)-i-1))
+
+        return number
+        

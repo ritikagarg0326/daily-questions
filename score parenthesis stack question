@@ -1,0 +1,19 @@
+class Solution:
+    def scoreOfParentheses(self, s: str) -> int:
+        res=[]
+        count=0
+        for i in range(len(s)):
+            v=0
+            if s[i]=='(':
+                res.append(0)
+            else:
+                while(res[-1]!=0):
+                    v+=res.pop()
+                v=max(2*v,1)
+                res.pop()
+                res.append(v)
+        while len(res)!=0:
+            count+=res.pop()
+        return count
+            
+        

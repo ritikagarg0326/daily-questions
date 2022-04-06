@@ -1,0 +1,35 @@
+class Solution:
+    
+    def threeSumMulti(self, arr: List[int], target: int) -> int:
+        if not arr or len(arr) < 3:
+            return None
+        count = {}
+        res = 0
+        visited = set()
+        kmod = 10 ** 9 + 7
+        for i in range(len(arr)):
+            count[arr[i]] = count.get(arr[i], 0) + 1
+        #print(count)
+        for a in range(target + 1):
+            for b in range(a, target + 1):
+                c = target - a - b
+                #print(a, b, c)
+                if c < 0 or c not in count or c < b:
+                    continue
+                if a not in count or b not in count or c not in count:
+                    continue
+                if (a, b, c) in visited:
+                    continue
+                visited.add((a, b, c))
+                if a == b == c and count[a] >= 3:
+                    res += count[a] * (count[a] - 1) * (count[a] - 2) / 6
+                elif a == b and b != c and count[a] >= 2:
+                    res += count[a] * (count[a] - 1) * count[c] / 2
+                elif a != b and b == c and count[b] >= 2:
+                    res += count[a] * count[b] * (count[b] - 1) / 2
+                elif a != b and b != c:
+                    res += count[a] * count[b] * count[c]
+                #print(a, b, c, res)
+        return int(res % kmod)
+                
+        

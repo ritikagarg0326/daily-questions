@@ -1,0 +1,21 @@
+link: https://leetcode.com/problems/baseball-game/
+code:
+class Solution:
+    def calPoints(self, ops: List[str]) -> int:
+        s=[]
+        for i in ops:
+            if i=="+":
+                psum=int(s[-1])+int(s[-2])
+                s.append(psum)
+            elif i=="C":
+                s.pop()
+            elif i=="D":
+                s.append(int(s[-1])*2)
+            else:
+                
+                s.append(i)
+        sumi=0
+        for j in s:
+            sumi+=int(j)
+        return sumi
+            

@@ -1,0 +1,33 @@
+link: https://leetcode.com/problems/game-of-life/
+code:
+class Solution:
+    def gameOfLife(self, board: List[List[int]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        r, c = len(board), len(board[0])
+            
+        def count(i, j):
+            count = 0
+            surround = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]]
+            for dx, dy in surround:
+                x = i+dx
+                y = j+dy
+                if 0<=x<r and 0<=y<c and abs(board[x][y])==1:
+                    count += 1
+            return count
+
+        for i in range(r):
+            for j in range(c):
+                curr = count(i,j)
+                if (curr < 2 or curr > 3) and abs(board[i][j]) == 1:
+                    board[i][j] = -1
+                elif curr == 3 and board[i][j] == 0:
+                    board[i][j] = 2
+
+        for i in range(r):
+            for j in range(c):
+                if board[i][j] == 2:
+                    board[i][j] = 1
+                elif board[i][j] == -1:
+                    board[i][j] = 0

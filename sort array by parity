@@ -1,0 +1,16 @@
+link :https://leetcode.com/problems/sort-array-by-parity/
+
+code in python :
+class Solution:
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        ev=[]
+        od=[]
+        for i in nums:
+            if i%2==0:
+                ev.append(i)
+            else:
+                od.append(i)
+        r=ev+od
+        return r
+                
+        

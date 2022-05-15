@@ -1,0 +1,15 @@
+q = collections.deque([root])
+        
+        while q:
+            res = 0
+            for _ in range(len(q)):
+                curr = q.popleft()
+                
+                res += curr.val
+                
+                if curr.left:
+                    q.append(curr.left)
+                if curr.right:
+                    q.append(curr.right)
+            
+        return res

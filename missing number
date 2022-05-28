@@ -1,0 +1,6 @@
+link: 
+https://leetcode.com/problems/missing-number/
+code:
+ class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        return [item for item in [i for i in range(len(nums)+1)] if item not in nums][0]

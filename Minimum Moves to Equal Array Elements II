@@ -1,0 +1,18 @@
+
+
+link: https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/
+
+
+code:
+class Solution:
+    def minMoves2(self, nums: List[int]) -> int:
+        s=sorted(nums)
+        moves=0
+        n=len(s)
+        median=s[int(n / 2)]
+        
+        for i in s:
+            moves+= abs(i-median)
+        return moves
+    
+  

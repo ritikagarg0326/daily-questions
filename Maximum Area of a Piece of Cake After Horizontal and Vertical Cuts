@@ -1,0 +1,26 @@
+code:
+class Solution:
+    def maxArea(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
+        arr1=[]
+        arr2=[]
+        arr1.append(0)
+        arr1.append(h)
+        arr2.append(0)
+        arr2.append(w)
+        for i in horizontalCuts:
+            arr1.append(i)
+        for j in verticalCuts:
+            arr2.append(j)
+        arr1.sort()
+        arr2.sort()
+        l=0
+        b=0
+        for i in range(1,len(arr1)):
+            if l<(arr1[i]-arr1[i-1]):
+                l=arr1[i]-arr1[i-1]
+        for j in range(1,len(arr2)):
+            if b<(arr2[j]-arr2[j-1]):
+                b=arr2[j]-arr2[j-1]
+        # print(l,b)
+        return (l*b)%1000000007
+        

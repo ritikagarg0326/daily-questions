@@ -1,0 +1,28 @@
+link: https://leetcode.com/problems/middle-of-the-linked-list/
+
+code: by using mid element 
+        if head==None:
+#             return 
+#         else:
+#             count=0
+#             ymp=head
+#             while ymp!=None:
+#                 count+=1
+#                 ymp=ymp.next
+            
+#         mid=count//2
+#         while mid!=count:
+#             head=head.next
+#             print(head.val)
+#             mid=mid+1
+  time complexity: O(N)
+  code: using two pointers
+  i=head
+            j=head
+            while (j and j.next):
+                i=i.next
+                j=j.next.next
+            return i
+            
+  time complexity=O(N)
+  space somplexity=o(1)

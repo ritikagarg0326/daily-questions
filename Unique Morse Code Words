@@ -1,0 +1,20 @@
+
+link: https://leetcode.com/problems/unique-morse-code-words/
+
+
+code: class Solution:
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        if len(words)==1:
+            return 1
+        d={"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+        res=[]
+        for i in words:
+            s=""
+            for j in i:
+                for k,v in d.items():
+                    if k==j:
+                        s+=v
+            res.append(s)
+        # return res
+        p=set(res)
+        return len(p)
